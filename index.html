@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Options University</title>
+  <meta name="description" content="Wealth Options University - Learn investing strategies with courses, memberships, and 1-on-1 coaching." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7f9;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #0a3d62, #38ada9);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #38ada9;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover { background: #0a3d62; }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0a3d62;
+      color: white;
+    }
+    /* Live chat bubble */
+    #chat-bubble {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #38ada9;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    #chat-box {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    #chat-box header {
+      background: #38ada9;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 10px 10px 0 0;
+    }
+    #chat-box textarea {
+      width: 100%;
+      height: 80px;
+      border: none;
+      padding: 10px;
+    }
+    #chat-box button {
+      width: 100%;
+      padding: 10px;
+      background: #38ada9;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wealth Options University</h1>
+    <p>Founded by Mrs. Tiphany Richardson</p>
+    <nav>
+      <a href="#membership">Membership</a>
+      <a href="#courses">Courses</a>
+      <a href="#videos">Videos</a>
+      <a href="#booking">Book 1-on-1</a>
+      <a href="#live">Go Live</a>
+    </nav>
+  </header>
+
+  <section id="membership">
+    <h2>📈 Monthly Membership</h2>
+    <div class="card">
+      <p>Access exclusive lessons, community, and weekly live sessions.</p>
+      <a href="#" class="btn" onclick="purchaseMembership()">Subscribe $49/month</a>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2>🎓 E-Courses</h2>
+    <div class="card">
+      <p>Master Options Trading - Beginner to Advanced</p>
+      <a href="#" class="btn" onclick="purchaseCourse()">Buy for $199</a>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>🎥 Recorded Videos</h2>
+    <div class="card">
+      <p>Purchased courses will appear here for download & streaming.</p>
+      <video controls width="100%">
+        <source src="sample-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>📅 Book a 1-on-1 Session</h2>
+    <div class="card">
+      <p>Work directly with Mrs. Tiphany Richardson to plan your investment strategies.</p>
+      <a href="#" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <section id="live">
+    <h2>🔴 Live Session</h2>
+    <div class="card">
+      <p>Live webinars will be embedded here when available.</p>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Wealth Options University. All rights reserved.</p>
+  </footer>
+
+  <!-- Live chat -->
+  <div id="chat-bubble">💬</div>
+  <div id="chat-box">
+    <header>Live Chat</header>
+    <textarea placeholder="Type your message..."></textarea>
+    <button>Send</button>
+  </div>
+
+  <!-- Stripe & JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const chatBubble = document.getElementById('chat-bubble');
+    const chatBox = document.getElementById('chat-box');
+
+    chatBubble.addEventListener('click', () => {
+      chatBox.style.display = chatBox.style.display === 'block' ? 'none' : 'block';
+    });
+
+    function purchaseMembership() {
+      alert("Stripe integration goes here (needs backend).");
+    }
+    function purchaseCourse() {
+      alert("Stripe integration goes here (needs backend).");
+    }
+  </script>
+</body>
+</html>
