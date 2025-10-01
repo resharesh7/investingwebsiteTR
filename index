@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Wealth Options University — eCourses and memberships teaching investing strategies with video lessons, 1:1 coaching and live sessions." />
+  <meta name="keywords" content="investing course, stock trading, eCourse, membership, financial education" />
+  <title>Wealth Options University — Investing eCourses & Membership</title>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Wealth Options University" />
+  <meta property="og:description" content="Learn investing strategies from Mrs. Tiphany Richardson — eCourses, memberships and 1:1 coaching." />
+  <meta property="og:image" content="https://your-cdn.com/preview.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (replace) -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+  <!-- Simple reset + styles -->
+  <style>
+    :root{
+      --bg:#0f1724;       /* deep navy */
+      --card:#0b1220;
+      --accent:#8fd46e;   /* money green */
+      --accent-2:#6fc4e8; /* future blue */
+      --muted:#9aa7b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --maxw:1200px;
+      --brand-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #0f1724 60%);color:#e6eef6;font-family:var(--brand-font);-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#042;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+    h1{font-size:20px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+    .hero{display:flex;gap:36px;align-items:center;padding:36px 0}
+    .hero-left{flex:1}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(143,212,110,0.12), rgba(111,196,232,0.08));color:var(--accent);font-weight:700;margin-bottom:10px}
+    h2{font-size:34px;line-height:1.05;margin:8px 0}
+    p.lead{color:var(--muted);max-width:60%}
+    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .card{background:var(--card);padding:16px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    /* responsive */
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column}.lead{max-width:100%}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}.hero{gap:16px}.hero-left h2{font-size:26px}}
+    /* course cards */
+    .course-thumb{height:140px;border-radius:10px;background:linear-gradient(180deg, rgba(111,196,232,0.08), rgba(143,212,110,0.04));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .course-title{font-weight:800;margin:12px 0 6px}
+    .price{font-weight:800;color:var(--accent)}
+    .muted{color:var(--muted);font-size:14px}
+    /* video gallery + downloads */
+    .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media (max-width:640px){.video-grid{grid-template-columns:1fr}}
+    .video-card{display:flex;gap:12px;align-items:flex-start}
+    .video-card video{width:240px;max-width:100%;border-radius:8px}
+    .small{font-size:13px}
+    /* booking */
+    .booking{display:flex;gap:16px;flex-wrap:wrap}
+    .booking .card{flex:1;min-width:260px}
+    /* footer */
+    footer{margin-top:36px;padding:28px 0;color:var(--muted);font-size:14px}
+    /* live chat bubble */
+    #chatBubble{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,var(--accent),var(--accent-2));width:64px;height:64px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,0.4);cursor:pointer;z-index:9999}
+    #chatBubble img{width:34px;height:34px}
+    .hidden{display:none}
+    /* subtle footer links */
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .pill{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:700}
+    /* small inputs */
+    input,select,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px;width:100%;box-sizing:border-box}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+  </style>
+
+  <!-- Stripe JS (replace with real publishable key in script below) -->
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+  <!-- Live chat bubble -->
+  <div id="chatBubble" title="Live chat">
+    <!-- Replace with chat provider icon or image -->
+    <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="chat"/>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">WOU</div>
+        <div>
+          <h1>Wealth Options University</h1>
+          <div class="muted">Mrs. Tiphany Richardson — Investing Education</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#courses">Courses</a>
+        <a href="#membership">Membership</a>
+        <a href="#book">Book 1:1</a>
+        <a href="#live">Live</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="badge">New Cohort • Monthly Memberships Available</div>
+        <h2>Invest confidently. Learn practical strategies that work in today's markets.</h2>
+        <p class="lead">Self-paced eCourses, month-to-month memberships, 1:1 coaching and live sessions taught by <strong>Mrs. Tiphany Richardson</strong>. Includes downloadable recordings after purchase.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" id="joinMembershipBtn">Join Membership — $49/month</button>
+          <button class="btn btn-outline" id="viewCoursesBtn">View Courses</button>
+        </div>
+      </div>
+
+      <aside style="width:420px" class="card">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="width:60px;height:60px;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700">TR</div>
+          <div>
+            <div style="font-weight:800">Mrs. Tiphany Richardson</div>
+            <div class="muted small">Founder, Wealth Options University</div>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.04);margin:12px 0"/>
+
+        <div style="display:flex;gap:8px;flex-direction:column">
+          <div class="muted small">Membership Includes</div>
+          <ul class="muted small">
+            <li>Full access to course library</li>
+            <li>Downloadable lesson files after purchase</li>
+            <li>Priority booking for 1:1 coaching</li>
+            <li>Weekly live Q&A</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" style="margin-top:22px">
+      <h3 style="margin-bottom:12px">Featured Courses</h3>
+      <div class="grid">
+        <!-- Course card 1 -->
+        <div class="card">
+          <div class="course-thumb">Candlesticks 101</div>
+          <div style="padding-top:8px">
+            <div class="course-title">Understanding Candlestick Patterns</div>
+            <div class="muted small">7 lessons • 1.5 hrs</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+              <div class="price">$99</div>
+              <div>
+                <button class="btn btn-primary" data-product-id="course_candlesticks" onclick="buyProduct('course_candlesticks')">Buy Course</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course card 2 -->
+        <div class="card">
+          <div class="course-thumb">Risk Management</div>
+          <div style="padding-top:8px">
+            <div class="course-title">Risk & Money Management</div>
+            <div class="muted small">5 lessons • 1.1 hrs</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+              <div class="price">$79</div>
+              <div>
+                <button class="btn btn-primary" data-product-id="course_risk" onclick="buyProduct('course_risk')">Buy Course</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course card 3 -->
+        <div class="card">
+          <div class="course-thumb">Charts & Strategies</div>
+          <div style="padding-top:8px">
+            <div class="course-title">Charting & Trade Strategies</div>
+            <div class="muted small">10 lessons • 3 hrs</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+              <div class="price">$199</div>
+              <div>
+                <button class="btn btn-primary" data-product-id="course_charting" onclick="buyProduct('course_charting')">Buy Course</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership -->
+    <section id="membership" style="margin-top:28px">
+      <h3>Membership</h3>
+      <div class="grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="card">
+          <h4 style="margin:0 0 6px 0">Monthly Membership</h4>
+          <div class="muted small">Billed monthly. Cancel anytime.</div>
+          <div style="margin-top:12px;font-weight:800;font-size:20px;color:var(--accent)">$49 / month</div>
+          <div style="margin-top:12px">
+            <button class="btn btn-primary" onclick="buyMembership()">Start Membership</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin:0 0 6px 0">Benefits</h4>
+          <ul class="muted small">
+            <li>Access to all current & future courses</li>
+            <li>Exclusive weekly live Q&A</li>
+            <li>Discount on 1:1 coaching</li>
+            <li>Downloadable resources</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video gallery (recorded videos uploaded to site) -->
+    <section id="vault" style="margin-top:28px">
+      <h3>Course Library & Downloads</h3>
+      <p class="muted small">Preview videos below. Downloads are available only after purchase — log in and visit "My Downloads".</p>
+
+      <div class="card">
+        <div class="video-grid" id="videoGrid">
+          <!-- These are preview videos — replace src with real uploaded previews -->
+          <div class="video-card">
+            <video controls poster="" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+            <div>
+              <div style="font-weight:800">Lesson 1 — Reading Candles</div>
+              <div class="muted small">Preview • 12 min</div>
+              <div style="margin-top:10px">
+                <button class="btn btn-outline" onclick="previewDownload('lesson1')">Download (Locked)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <video controls poster="" src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"></video>
+            <div>
+              <div style="font-weight:800">Lesson 2 — Support & Resistance</div>
+              <div class="muted small">Preview • 18 min</div>
+              <div style="margin-top:10px">
+                <button class="btn btn-outline" onclick="previewDownload('lesson2')">Download (Locked)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,0.04);margin:14px 0"/>
+
+        <div id="userDownloads" class="muted small">
+          <!-- After purchase, fetch and populate download links here -->
+          <div id="downloadsList">Not signed in / No purchases detected.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="book" style="margin-top:28px">
+      <h3>Book 1:1 Session</h3>
+      <p class="muted small">1:1 sessions available after course purchase or membership. Book a session here — bookings confirmed after we verify your purchase.</p>
+      <div class="card booking">
+        <div>
+          <label for="coachingTopic">Topic</label>
+          <select id="coachingTopic">
+            <option>Trade Review</option>
+            <option>Strategy Setup</option>
+            <option>Portfolio Planning</option>
+            <option>Risk Management</option>
+          </select>
+          <label for="dateTime" style="margin-top:8px">Preferred date & time</label>
+          <input id="dateTime" type="datetime-local" />
+          <label for="clientEmail" style="margin-top:8px">Your email</label>
+          <input id="clientEmail" type="email" placeholder="you@domain.com" />
+          <div style="margin-top:10px;display:flex;gap:10px">
+            <button class="btn btn-primary" onclick="requestBooking()">Request Booking</button>
+            <button class="btn btn-outline" onclick="openCalendly()">Book via Calendly</button>
+          </div>
+          <div id="bookingMsg" style="margin-top:10px" class="muted small"></div>
+        </div>
+
+        <div class="card" style="background:transparent;border:1px dashed rgba(255,255,255,0.03);min-width:280px">
+          <div style="font-weight:800;margin-bottom:6px">Prefer immediate booking?</div>
+          <div class="muted small">Use our live Calendly scheduling (recommeded):</div>
+          <!-- Replace data with your Calendly link -->
+          <div style="margin-top:10px">
+            <iframe src="https://calendly.com/your-calendly" style="height:360px;width:100%;border:0;border-radius:8px" title="Calendly"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live / Go Live -->
+    <section id="live" style="margin-top:28px">
+      <h3>Live Sessions</h3>
+      <div class="card" style="display:flex;flex-direction:column;gap:12px">
+        <div class="muted small">Upcoming live stream — tune in weekly for market Q&A</div>
+
+        <!-- Replace with your YouTube/Vimeo Live embed -->
+        <div style="position:relative;padding-top:56.25%">
+          <iframe src="https://www.youtube.com/embed/live_stream?channel=YOUR_CHANNEL_ID" style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:8px" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Live stream"></iframe>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <button class="btn btn-primary" onclick="joinLive()">Join Live Chat</button>
+          <div class="muted small">Live chat available during streams.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + Footer -->
+    <section style="margin-top:28px">
+      <h3>FAQ</h3>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card"><strong>How do I access downloads?</strong><div class="muted small">Downloads appear in your account area after purchase.</div></div>
+        <div class="card"><strong>Refund policy</strong><div class="muted small">30 day refund policy on single courses. Membership billed monthly.</div></div>
+        <div class="card"><strong>Need help?</strong><div class="muted small">Contact support@wealthoptions.edu</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="muted small">© <span id="year"></span> Wealth Options University • Mrs. Tiphany Richardson</div>
+        <div class="links">
+          <div class="pill">Terms</div>
+          <div class="pill">Privacy</div>
+          <div class="pill">FERPA / School Compliance</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Simple chat modal -->
+  <div id="chatModal" class="hidden" style="position:fixed;right:18px;bottom:92px;width:320px;background:var(--card);border-radius:14px;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,0.6);z-index:9999">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div style="font-weight:800">Chat with Support</div>
+      <button onclick="toggleChat()" style="background:transparent;border:0;color:var(--muted);cursor:pointer">✕</button>
+    </div>
+    <div id="chatWindow" style="height:220px;overflow:auto;border-radius:8px;padding:8px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)">
+      <div class="muted small">Welcome! How can we help you today?</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <input id="chatInput" placeholder="Type a message..." />
+      <button class="btn btn-primary" onclick="sendChat()">Send</button>
+    </div>
+  </div>
+
+<script>
+  // Basic client-side logic and placeholders for server integration
+
+  // ---- CONFIGURE THESE ----
+  const STRIPE_PUBLISHABLE_KEY = "pk_test_REPLACE_WITH_YOURS"; // <-- REPLACE
+  const API_BASE = ""; // If your backend runs at same origin, leave empty. Otherwise set e.g. "https://api.yourdomain.com"
+  // -------------------------
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Initialize Stripe
+  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+
+  // Navigation helpers
+  document.getElementById('joinMembershipBtn').addEventListener('click', buyMembership);
+  document.getElementById('viewCoursesBtn').addEventListener('click', () => location.hash = "#courses");
+
+  // Buy single product (course)
+  async function buyProduct(productId){
+    // productId examples: 'course_candlesticks'
+    try{
+      const res = await fetch(`${API_BASE}/create-checkout-session`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({mode: "payment", productId})
+      });
+      const data = await res.json();
+      if(data.sessionId){
+        await stripe.redirectToCheckout({ sessionId: data.sessionId });
+      } else {
+        alert("Failed to start checkout. Check server logs.");
+      }
+    }catch(err){
+      console.error(err);
+      alert("Network error creating checkout session.");
+    }
+  }
+
+  // Buy membership
+  async function buyMembership(){
+    try{
+      const res = await fetch(`${API_BASE}/create-checkout-session`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({mode: "subscription", priceId: "price_monthly_membership_REPLACE"})
+      });
+      const data = await res.json();
+      if(data.sessionId){
+        await stripe.redirectToCheckout({ sessionId: data.sessionId });
+      } else {
+        alert("Failed to start checkout. Check server logs.");
+      }
+    }catch(err){
+      console.error(err);
+      alert("Network error creating checkout session.");
+    }
+  }
+
+  // After user returns, call server to check purchase status and populate downloads
+  async function fetchDownloads(){
+    try{
+      const res = await fetch(`${API_BASE}/my-downloads`, { credentials: "include" });
+      if(res.status === 200){
+        const data = await res.json();
+        const list = document.getElementById('downloadsList');
+        if(data && data.length){
+          list.innerHTML = data.map(d => `<div style="margin-bottom:8px"><strong>${d.title}</strong><div class="small muted">${d.size}</div><div style="margin-top:6px"><a class="btn btn-primary" href="${d.downloadUrl}">Download</a></div></div>`).join("");
+        } else {
+          list.textContent = "No downloads available for your account.";
+        }
+      } else {
+        document.getElementById('downloadsList').textContent = "Sign in or complete a purchase to see downloads.";
+      }
+    }catch(err){
+      console.error(err);
+      document.getElementById('downloadsList').textContent = "Error fetching downloads.";
+    }
+  }
+
+  // Simple preview download handler
+  function previewDownload(id){
+    alert("Downloads are available after purchase. Click 'Start Membership' or buy the course to unlock downloads.");
+  }
+
+  // Booking: request server to verify purchase and create booking (or use Calendly)
+  async function requestBooking(){
+    const topic = document.getElementById('coachingTopic').value;
+    const dt = document.getElementById('dateTime').value;
+    const email = document.getElementById('clientEmail').value;
+    const msg = document.getElementById('bookingMsg');
+
+    if(!email || !dt){ msg.textContent = "Please provide email and preferred date/time."; return; }
+    msg.textContent = "Checking purchase and requesting booking...";
+
+    try{
+      const res = await fetch(`${API_BASE}/request-booking`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        credentials: "include",
+        body: JSON.stringify({topic, preferredAt: dt, email})
+      });
+      const data = await res.json();
+      if(data.status === "ok"){
+        msg.textContent = "Booking requested! We will confirm via email shortly.";
+      } else {
+        msg.textContent = data.message || "Unable to request booking. Ensure you own a course or membership.";
+      }
+    }catch(err){
+      console.error(err);
+      msg.textContent = "Network error during booking request.";
+    }
+  }
+
+  function openCalendly(){
+    // Open Calendly in new window (also embedded above)
+    window.open("https://calendly.com/your-calendly", "_blank");
+  }
+
+  // Live join
+  function joinLive(){
+    alert("Join the live stream on the embedded player. Use the live chat bubble to interact.");
+  }
+
+  // Chat bubble handlers (simple local UI; replace with Tawk.to / Intercom script for production)
+  const chatBubble = document.getElementById('chatBubble');
+  const chatModal = document.getElementById('chatModal');
+  function toggleChat(){ chatModal.classList.toggle('hidden'); }
+  chatBubble.addEventListener('click', toggleChat);
+  async function sendChat(){
+    const input = document.getElementById('chatInput');
+    const windowEl = document.getElementById('chatWindow');
+    const text = input.value.trim();
+    if(!text) return;
+    windowEl.innerHTML += `<div style="margin-top:8px"><strong>You:</strong> ${escapeHtml(text)}</div>`;
+    input.value = "";
+    // For demo, simple canned response; in production forward to support via API
+    windowEl.innerHTML += `<div style="margin-top:8px;color:var(--muted)"><strong>Support:</strong> Thanks for reaching out, we'll get back to you via email within 24 hours.</div>`;
+    windowEl.scrollTop = windowEl.scrollHeight;
+  }
+  function escapeHtml(unsafe) { return unsafe.replace(/[&<"']/g, m => ({'&':'&amp;','<':'&lt;','"':'&quot;',"'":"&#039;"}[m])); }
+
+  // On page load, try to fetch downloads (if user already authenticated via server cookies)
+  window.addEventListener('load', () => {
+    fetchDownloads();
+  });
+
+  // Utility: handle hash navigation to open sections smoothly
+  if(window.location.hash === "#downloads") { document.getElementById('vault').scrollIntoView({behavior:'smooth'}); }
+
+  // Helper to open external pages in new window for payments success/cancel etc handled server-side.
+
+  // --- End of client JS ---
+</script>
+
+<!-- Optional: Live chat provider script (Tawk.to / Intercom) -->
+<!--
+<script>
+  // Example Tawk.to snippet (replace with your property)
+  // var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  // (function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;
+  // s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+  // s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+-->
+
+</body>
+</html>
